@@ -12,8 +12,8 @@ export default function Home() {
         <meta name='description' content='The best items to blend in the shadows'/>
       </Head>
       <Navbar/>
-      <div className='w-screen relative' style={{height: "40vh"}}>
-        <Image src="/ShadowCode.jpg" fill alt='code'/>
+      <div>
+        <img src='/Home.jpg' />
       </div>
       <Footer/>
     </>
