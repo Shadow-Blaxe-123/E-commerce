@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-    <div>
+    <div className='flex justify-between'>
       <div className='logo'>
         <Image src="/favicon.ico" width={40} height={40}/>
       </div>
@@ -15,6 +15,9 @@ export default function Navbar() {
             <li>Mugs</li>
             <li>Stickers</li>
         </ul>
+      </div>
+      <div className='cart'>
+        <button>Cart</button>
       </div>
     </div>
   )
