@@ -9,7 +9,7 @@ export default function Navbar() {
         <Link href={'/'}><Image src="/favicon.ico" width={40} height={40} alt='logo'/></Link>
       </div>
       <div className='nav'>
-        <ul className='flex items-center space-x-5 font-bold'>
+        <ul className='flex items-center space-x-5 font-bold md:text-xl'>
             <Link href={'/'}><li>About</li></Link>
             <Link href={'/'}><li>Tshirts</li></Link>
             <Link href={'/'}><li>Hoodies</li></Link>
@@ -17,7 +17,7 @@ export default function Navbar() {
             <Link href={'/'}><li>Suits</li></Link>
         </ul>
       </div>
-      <div className='cart absolute right-0 mx-5 font-bold'>
+      <div className='cart absolute right-0 mx-5 font-bold md:text-xl'>
         <button>Cart</button>
       </div>
     </div>
