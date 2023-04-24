@@ -9,7 +9,7 @@ export default function Footer() {
     <Link href={"/"}> 
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
       <div className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-        <Image src="/next.svg" width={200} height={20}/>
+        <Image src="/next.svg" width={200} height={20} alt='logo'/>
       </div>
       <p className="mt-2 text-sm text-gray-500">Shadow Code</p>
     </div>

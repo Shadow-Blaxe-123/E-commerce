@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
       <Navbar/>
       <div>
-        <img src='/Home.jpg' />
+        <img src='/Home.jpg' alt='Img'/>
       </div>
       <Footer/>
     </>
