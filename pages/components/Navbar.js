@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { AiOutlineShoppingCart } from 'react-icons/ai'
 
 export default function Navbar() {
   return (
@@ -17,8 +18,8 @@ export default function Navbar() {
             <Link href={'/'}><li>Suits</li></Link>
         </ul>
       </div>
-      <div className='cart absolute right-0 mx-5 font-bold md:text-xl'>
-        <button>Cart</button>
+      <div className='cart absolute right-0 top-4 mx-5 font-bold md:text-xl'>
+        <AiOutlineShoppingCart className='tetxt-xl md:text-4xl'/>
       </div>
     </div>
   )
