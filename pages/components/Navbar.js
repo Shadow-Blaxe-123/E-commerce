@@ -11,11 +11,11 @@ export default function Navbar() {
       </div>
       <div className='nav'>
         <ul className='flex items-center space-x-5 font-bold md:text-xl'>
-            <Link href={'/'}><li>About</li></Link>
-            <Link href={'/'}><li>Tshirts</li></Link>
-            <Link href={'/'}><li>Hoodies</li></Link>
-            <Link href={'/'}><li>Jeans</li></Link>
-            <Link href={'/'}><li>Suits</li></Link>
+            <Link href={'/about'}><li>About</li></Link>
+            <Link href={'/tshirts'}><li>Tshirts</li></Link>
+            <Link href={'/hoodies'}><li>Hoodies</li></Link>
+            <Link href={'/jeans'}><li>Jeans</li></Link>
+            <Link href={'/suits'}><li>Suits</li></Link>
         </ul>
       </div>
       <div className='cart absolute right-0 top-4 mx-5 font-bold md:text-xl'>
