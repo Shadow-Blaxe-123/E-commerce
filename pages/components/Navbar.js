@@ -5,7 +5,7 @@ import { AiOutlineShoppingCart } from 'react-icons/ai'
 
 export default function Navbar() {
   return (
-    <div className='flex flex-col justify-between items-center md:flex-row md:justify-start'>
+    <div className='flex flex-col justify-between items-center md:flex-row md:justify-start shadow-2xl'>
       <div className='logo mx-4 my-2 md:my-4'>
         <Link href={'/'}><Image src="/favicon.ico" width={40} height={40} alt='logo'/></Link>
       </div>

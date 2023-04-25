@@ -12,12 +12,10 @@ export default function Home() {
         <title>Shadow Store</title>
         <meta name='description' content='The best items to blend in the shadows'/>
       </Head>
-      <Navbar/>
       <div>
         <img src='/Home.jpg' alt='Img'/>
       </div>
       <Content/>
-      <Footer/>
     </>
   )
 }
