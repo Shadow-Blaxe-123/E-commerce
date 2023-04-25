@@ -8,9 +8,9 @@ const Tshirts = () => {
     <div className="flex flex-wrap -m-4">
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
         <a className="block relative  rounded overflow-hidden">
-          <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/61JfsRhV+NL._AC_UL400_.jpg"/>
+          <img alt="ecommerce" className="m-auto md:mx-0 h-[30vh]  md:h-[36vh] block" src="https://m.media-amazon.com/images/I/61JfsRhV+NL._AC_UL400_.jpg"/>
         </a>
-        <div className="mt-4">
+        <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
           <p className="mt-1">$16.00</p>
@@ -18,9 +18,9 @@ const Tshirts = () => {
       </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
         <a className="block relative  rounded overflow-hidden">
-          <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/81QaUk6YldL._AC_UL400_.jpg"/>
+          <img alt="ecommerce" className="m-auto md:mx-0 h-[30vh]  md:h-[36vh] block" src="https://m.media-amazon.com/images/I/81QaUk6YldL._AC_UL400_.jpg"/>
         </a>
-        <div className="mt-4">
+        <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
           <p className="mt-1">$21.15</p>
@@ -28,9 +28,9 @@ const Tshirts = () => {
       </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
         <a className="block relative  rounded overflow-hidden">
-          <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/61qojMm3mpL._AC_UL400_.jpg"/>
+          <img alt="ecommerce" className="m-auto md:mx-0 h-[30vh]  md:h-[36vh] block" src="https://m.media-amazon.com/images/I/61qojMm3mpL._AC_UL400_.jpg"/>
         </a>
-        <div className="mt-4">
+        <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Neptune</h2>
           <p className="mt-1">$12.00</p>
@@ -38,9 +38,9 @@ const Tshirts = () => {
       </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
         <a className="block relative  rounded overflow-hidden">
-          <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/618c2lEkJbL._AC_UL400_.jpg"/>
+          <img alt="ecommerce" className="m-auto md:mx-0 h-[30vh]  md:h-[36vh] block" src="https://m.media-amazon.com/images/I/618c2lEkJbL._AC_UL400_.jpg"/>
         </a>
-        <div className="mt-4">
+        <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
           <p className="mt-1">$18.40</p>
@@ -48,9 +48,9 @@ const Tshirts = () => {
       </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
         <a className="block relative  rounded overflow-hidden">
-          <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/61JfsRhV+NL._AC_UL400_.jpg"/>
+          <img alt="ecommerce" className="m-auto md:mx-0 h-[30vh]  md:h-[36vh] block" src="https://m.media-amazon.com/images/I/61JfsRhV+NL._AC_UL400_.jpg"/>
         </a>
-        <div className="mt-4">
+        <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
           <p className="mt-1">$16.00</p>
@@ -58,9 +58,9 @@ const Tshirts = () => {
       </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
         <a className="block relative  rounded overflow-hidden">
-          <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/81QaUk6YldL._AC_UL400_.jpg"/>
+          <img alt="ecommerce" className="m-auto md:mx-0 h-[30vh]  md:h-[36vh] block" src="https://m.media-amazon.com/images/I/81QaUk6YldL._AC_UL400_.jpg"/>
         </a>
-        <div className="mt-4">
+        <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
           <p className="mt-1">$21.15</p>
@@ -68,9 +68,9 @@ const Tshirts = () => {
       </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
         <a className="block relative  rounded overflow-hidden">
-          <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/61qojMm3mpL._AC_UL400_.jpg"/>
+          <img alt="ecommerce" className="m-auto md:mx-0 h-[30vh]  md:h-[36vh] block" src="https://m.media-amazon.com/images/I/61qojMm3mpL._AC_UL400_.jpg"/>
         </a>
-        <div className="mt-4">
+        <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">Neptune</h2>
           <p className="mt-1">$12.00</p>
@@ -78,9 +78,9 @@ const Tshirts = () => {
       </div>
       <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
         <a className="block relative  rounded overflow-hidden">
-          <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/618c2lEkJbL._AC_UL400_.jpg"/>
+          <img alt="ecommerce" className="m-auto   md:m-auto md:mx-0 h-[30vh]  md:h-[36vh] block" src="https://m.media-amazon.com/images/I/618c2lEkJbL._AC_UL400_.jpg"/>
         </a>
-        <div className="mt-4">
+        <div className="mt-4 text-center md:text-left">
           <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
           <h2 className="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
           <p className="mt-1">$18.40</p>
