@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Head from 'next/head'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import { Content } from './components/Content'
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <div>
         <img src='/Home.jpg' alt='Img'/>
       </div>
+      <Content/>
       <Footer/>
     </>
   )
