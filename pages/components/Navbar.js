@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, {useRef} from 'react'
-import { AiOutlineShoppingCart, AiOutlineCloseSquare} from 'react-icons/ai'
+import { AiOutlineShoppingCart, AiOutlineCloseSquare, AiOutlinePlusCircle, AiOutlineMinusCircle} from 'react-icons/ai'
+import { BsBagCheckFill} from 'react-icons/bs'
 
 
 
@@ -39,10 +40,30 @@ export default function Navbar() {
         <AiOutlineShoppingCart className='cursor-pointer tetxt-xl md:text-4xl'/>
       </div>
       {/* Shopping Cart Sidebar */}
-      <div ref={refSideBar} className="w-72 z-10 sidebar absolute top-0 right-0 bg-violet-200 p-10 transform transition-transform translate-x-full">
+      <div ref={refSideBar} className="w-80 z-10 sidebar top-0 right-0 bg-violet-200 p-7 transform transition-transform translate-x-full fixed h-full">
         {/* Closing sidebar icon */}
-        <AiOutlineCloseSquare onClick={toggleCart} className='text-purple-600 top-2 text-3xl cursor-pointer right-2 absolute'/>
-        <h2 className="font-bold text-xl">Shopping Cart</h2>
+        <AiOutlineCloseSquare onClick={toggleCart} className='text-purple-700 top-2 text-3xl cursor-pointer right-2 absolute'/>
+        <h2 className="font-bold text-xl flex justify-center border-b-2 border-green-500">Shopping Cart</h2>
+
+        <ol className='list-decimal'>
+          <li>
+            <div className='flex m-2'>
+              <div className='w-2/3 items-center justify-center font-semibold text-lg m-2'>Tshirt - Wear the code</div>
+              <div className='w-1/3 flex justify-evenly items-center'><AiOutlinePlusCircle className='text-2xl text-pink-600 cursor-pointer hover:text-pink-800'/> 1 <AiOutlineMinusCircle className='text-2xl  text-pink-600 cursor-pointer hover:text-pink-800'/></div>
+            </div>
+          </li>
+          <li>
+            <div className='flex m-2'>
+              <div className='w-2/3 items-center justify-center font-semibold text-lg m-2'>Tshirt - Wear the code</div>
+              <div className='w-1/3 flex justify-evenly items-center'><AiOutlinePlusCircle className='text-2xl text-pink-600 cursor-pointer'/> 1 <AiOutlineMinusCircle className='text-2xl text-pink-600 cursor-pointer'/></div>
+            </div>
+          </li>
+        </ol>
+
+        <div className='flex'>
+        <button className="flex mr-auto text-white bg-pink-400 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded"> <BsBagCheckFill className='my-1 mx-2'/> Checkout</button>
+        <button className="mr-auto text-white bg-pink-400 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded">Clear Cart</button>
+        </div>
 
       </div>
     </div>
