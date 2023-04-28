@@ -39,7 +39,7 @@ export default function Navbar() {
         <AiOutlineShoppingCart className='cursor-pointer tetxt-xl md:text-4xl'/>
       </div>
       {/* Shopping Cart Sidebar */}
-      <div ref={refSideBar} className="sidebar absolute top-0 right-0 bg-violet-200 p-10 transform transition-transform translate-x-full">
+      <div ref={refSideBar} className="w-72 z-10 sidebar absolute top-0 right-0 bg-violet-200 p-10 transform transition-transform translate-x-full">
         {/* Closing sidebar icon */}
         <AiOutlineCloseSquare onClick={toggleCart} className='text-purple-600 top-2 text-3xl cursor-pointer right-2 absolute'/>
         <h2 className="font-bold text-xl">Shopping Cart</h2>
