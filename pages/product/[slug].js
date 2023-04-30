@@ -1,15 +1,49 @@
 import { useRouter } from 'next/router'
 import { useRef } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Slug = () => {
+  // Toast function
+  const notify = (param) => {toast.success(param, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });}
+  const warning = (param) => {toast.warn (param, {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });}
   const router = useRouter()
   const { slug } = router.query
   const ref = useRef()
   const checkPinCode = async ()=>{
     const res = await fetch('/api/pincode')
-    const pinArray = await res.json()
-    // console.log(ref.current.value)
-    console.log(pinArray)
+    let pinArray = []
+    pinArray = await res.json()
+// Checking if the zipcode has the correct number of digits
+    if (ref.current.value.length == 4) {
+      if (pinArray.includes(Number(ref.current.value))) {
+        notify("Your Pincode is serviceable!!!")
+        
+      }
+      else if (!pinArray.includes(Number(ref.current.value))) {
+        warning('Your Pincode is not availble for service.')
+        
+      }
+    }
+    else{warning('Please Enter a Valid Pincode')}
   }
 
   return (
@@ -96,8 +130,9 @@ const Slug = () => {
         <br/>
         <div className="flex">
           
-          <input ref={ref} placeholder='Check your Pincode' type="text" className='rounded border-[2px] appearance-none border-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-pink-500 text-base p-1'/>
-          <button className="flex ml-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded" onClick={checkPinCode}>Check Pincode</button>
+          <input ref={ref} placeholder='Check your Pincode' type="number" className='rounded border-[2px] appearance-none border-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-pink-500 text-base p-1'/>
+          <button className="flex ml-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded" onClick={checkPinCode}>Check Zip code</button>
+          <ToastContainer />
         </div>
         
       </div>
