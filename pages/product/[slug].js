@@ -1,8 +1,16 @@
 import { useRouter } from 'next/router'
+import { useRef } from 'react'
 
 const Slug = () => {
   const router = useRouter()
   const { slug } = router.query
+  const ref = useRef()
+  const checkPinCode = async ()=>{
+    const res = await fetch('/api/pincode')
+    const pinArray = await res.json()
+    // console.log(ref.current.value)
+    console.log(pinArray)
+  }
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
@@ -85,6 +93,13 @@ const Slug = () => {
           </button>
         </div>
         {/* Pincode Check */}
+        <br/>
+        <div className="flex">
+          
+          <input ref={ref} placeholder='Check your Pincode' type="text" className='rounded border-[2px] appearance-none border-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-pink-500 text-base p-1'/>
+          <button className="flex ml-2 text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded" onClick={checkPinCode}>Check Pincode</button>
+        </div>
+        
       </div>
     </div>
   </div>
