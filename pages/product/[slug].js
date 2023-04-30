@@ -84,6 +84,7 @@ const Slug = () => {
             </svg>
           </button>
         </div>
+        {/* Pincode Check */}
       </div>
     </div>
   </div>
