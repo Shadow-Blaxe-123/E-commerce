@@ -18,6 +18,7 @@ export const Cart = () => {
   return (
     <div>
               {/* Shopping Cart */}
+              
       <div onClick={toggleCart} className='cart absolute right-0 top-4 mx-5 font-bold md:text-xl'>
         <AiOutlineShoppingCart className='cursor-pointer tetxt-xl md:text-4xl'/>
       </div>
@@ -25,7 +26,7 @@ export const Cart = () => {
       <div ref={refSideBar} className="w-80 z-10 sidebar top-0 right-0 bg-violet-200 p-7 transform transition-transform translate-x-full fixed h-full">
         {/* Closing sidebar icon */}
         <AiOutlineCloseSquare onClick={toggleCart} className='text-purple-700 top-2 text-3xl cursor-pointer right-2 absolute'/>
-        <h2 className="font-bold text-xl flex justify-center border-b-2 border-green-500">Shopping Cart</h2>
+        <h2 className="font-bold text-xl flex justify-center border-b-2 border-green-500">Shopping Cart Redux do something</h2>
 
         <ol className='list-decimal'>
           <li>
