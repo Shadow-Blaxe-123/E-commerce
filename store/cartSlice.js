@@ -3,16 +3,18 @@ const { createSlice } = require("@reduxjs/toolkit");
 const cartSlice = createSlice(
     {
         name: 'cart',
-        initialState: ['Do', 'something'],
+        initialState: {
+            isOpen: false
+        },
         reducers: {
-            addToCart(state, action) {
-                return state
-            },
-            removeFromCart(state, action) {
-                return state
+            // State for the visibility of cart.
+            toggleCartState: (state) => {
+                state.isOpen = !state.isOpen;
             }
         }
     }
 )
 
-export default cartSlice
+export const {toggleCartState} = cartSlice.actions
+
+export default cartSlice.reducer
