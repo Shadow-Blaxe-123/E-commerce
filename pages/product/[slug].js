@@ -1,3 +1,4 @@
+import { useCheckPinCodeQuery } from '@/store/apiSlice';
 import { useRouter } from 'next/router'
 import { useRef } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
@@ -5,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // SLug.jsg
 const Slug = () => {
-  // Toast function
+  // Toast function to display notification --External Library called "Toastify"
   const notify = (param) => {toast.success(param, {
     position: "top-right",
     autoClose: 2000,
@@ -26,26 +27,23 @@ const Slug = () => {
     progress: undefined,
     theme: "dark",
     });}
-  const router = useRouter()
-  const { slug } = router.query
+  
   const ref = useRef()
-  const checkPinCode = async ()=>{
-    const res = await fetch('/api/pincode')
-    let pinArray = []
-    pinArray = await res.json()
-// Checking if the zipcode has the correct number of digits
-    if (ref.current.value.length == 4) {
+
+  // Getting the RTK Query Hook for pincode.
+const { data: pinArray = [] } = useCheckPinCodeQuery();
+// the name is self-explainatory
+  const checkPinCode = async () => {
+    if (ref.current.value.length === 4) {
       if (pinArray.includes(Number(ref.current.value))) {
-        notify("Your Pincode is serviceable!!!")
-        
+        notify('Your Pincode is serviceable!!!');
+      } else {
+        warning('Your Pincode is not available for service.');
       }
-      else if (!pinArray.includes(Number(ref.current.value))) {
-        warning('Your Pincode is not availble for service.')
-        
-      }
+    } else {
+      warning('Please Enter a Valid Pincode');
     }
-    else{warning('Please Enter a Valid Pincode')}
-  }
+  };
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
