@@ -10,11 +10,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Provider store={store}>
-        <ApiProvider api={apiSlice}>
           <Navbar />
           <Component {...pageProps} />
           <Footer />
-        </ApiProvider>
       </Provider>
     </>
   );

@@ -1,22 +1,25 @@
 import React, {useRef} from 'react'
 import { AiOutlineShoppingCart, AiOutlineCloseSquare, AiOutlinePlusCircle, AiOutlineMinusCircle} from 'react-icons/ai'
 import { BsBagCheckFill} from 'react-icons/bs'
-import { toggleCartState } from '@/store/cartSlice'
-import { useDispatch } from 'react-redux'
+import { selectCart, toggleCartState } from '@/store/cartSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 export const Cart = () => {
     const refSideBar = useRef()
     const dispatch = useDispatch()
+    const cartState = useSelector(selectCart)
   
   const toggleCart = ()=>{
     if (refSideBar.current.classList.contains('translate-x-full')) {
       refSideBar.current.classList.remove('translate-x-full')
       refSideBar.current.classList.add('translate-x-0')
+      console.log(cartState);
       dispatch(toggleCartState())
     }
     else if (!refSideBar.current.classList.contains('translate-x-full')) {
       refSideBar.current.classList.remove('translate-x-0')
       refSideBar.current.classList.add('translate-x-full')
+      console.log(cartState);
       dispatch(toggleCartState())
     }
   }
