@@ -18,14 +18,38 @@ export const cartSlice = createSlice({
       //   const { param } = payload;
       state.itemsList.push(action.payload);
       console.log(action.payload, state);
+      alert("Add more logic to Add To Cart in Slice.");
     },
     clearCart: (state) => {
       state.itemsList = [];
     },
+    removeFromCart: (state, action) => {
+      alert("Add logic to Remove From Cart in Slice.");
+    },
+    manipulateQuantity: (state, action) => {
+      const result = state.itemsList.find(
+        (obj) => obj.itemCode === action.payload.itemCode
+      );
+
+      if (result) {
+        if (action.payload.type === "+") {
+          result.quantity++;
+        } else if (action.payload.type === "-") {
+          result.quantity--;
+          if (result.quantity === 0) {
+            // Remove the item from the list
+            state.itemsList = state.itemsList.filter(
+              (obj) => obj.itemCode !== result.itemCode
+            );
+          }
+        }
+      }
+    },
   },
 });
 
-export const { toggleCartState, addToCart, clearCart } = cartSlice.actions;
+export const { toggleCartState, addToCart, clearCart, manipulateQuantity } =
+  cartSlice.actions;
 // export const selectYourState = (state) => state.yourSlice.yourState;
 // export const selectYourState = (state) => state.cartSlice
 export const selectCart = (state) => state.cart;

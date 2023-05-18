@@ -1,10 +1,11 @@
 import { useCheckPinCodeQuery } from "@/store/apiSlice";
-import { addToCart } from "@/store/cartSlice";
+import { addToCart, selectCart, manipulateQuantity } from "@/store/cartSlice";
 import { useRouter } from "next/router";
 import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { handleAddToCart } from "../components/Cart";
 
 // SLug.jsg
 const Slug = () => {
@@ -40,6 +41,7 @@ const Slug = () => {
 
   // Getting the RTK Query Hook for pincode.
   const { data: pinArray = [] } = useCheckPinCodeQuery();
+  const cartState = useSelector(selectCart);
   // the name is self-explainatory
   const checkPinCode = async () => {
     if (ref.current.value.length === 4) {
@@ -54,7 +56,17 @@ const Slug = () => {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ item: "tshirt" }));
+    if (cartState.itemsList.find((obj) => obj.itemCode === "Tshirt0009")) {
+      dispatch(manipulateQuantity({ itemCode: "Tshirt0009", type: "+" }));
+    } else {
+      dispatch(
+        addToCart({
+          itemCode: "Tshirt0009",
+          itemName: "The Catcher Eye",
+          quantity: 1,
+        })
+      );
+    }
   };
 
   return (
