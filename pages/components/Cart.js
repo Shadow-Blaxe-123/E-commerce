@@ -6,14 +6,18 @@ import {
   AiOutlineMinusCircle,
 } from "react-icons/ai";
 import { BsBagCheckFill } from "react-icons/bs";
-import { selectCart, toggleCartState, clearCart } from "@/store/cartSlice";
+import {
+  selectCart,
+  toggleCartState,
+  clearCart,
+  manipulateQuantity,
+} from "@/store/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export const Cart = () => {
   const refSideBar = useRef();
   const dispatch = useDispatch();
   const cartState = useSelector(selectCart);
-
 
   // All the Utility functons to change handle.
   const toggleCart = () => {
@@ -32,6 +36,10 @@ export const Cart = () => {
 
   const handleClearCart = () => {
     dispatch(clearCart());
+  };
+
+  const handleAddQuantity = (item, type) => {
+    dispatch(manipulateQuantity({ itemCode: item.itemCode, type: type }));
   };
 
   return (
@@ -59,35 +67,32 @@ export const Cart = () => {
         </h2>
 
         <ol className="list-decimal">
-          <li>
-            <div className="flex m-2">
-              <div className="w-2/3 items-center justify-center font-semibold text-lg m-2">
-                Tshirt - Wear the code
-              </div>
-              <div className="w-1/3 flex justify-evenly items-center">
-                <AiOutlinePlusCircle className="text-2xl text-pink-600 cursor-pointer hover:text-pink-800" />{" "}
-                1{" "}
-                <AiOutlineMinusCircle className="text-2xl  text-pink-600 cursor-pointer hover:text-pink-800" />
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="flex m-2">
-              <div className="w-2/3 items-center justify-center font-semibold text-lg m-2">
-                Tshirt - Wear the code
-              </div>
-              <div className="w-1/3 flex justify-evenly items-center">
-                <AiOutlinePlusCircle className="text-2xl text-pink-600 cursor-pointer" />{" "}
-                1{" "}
-                <AiOutlineMinusCircle className="text-2xl text-pink-600 cursor-pointer" />
-              </div>
-            </div>
-          </li>
+          {cartState.itemsList.map((item) => {
+            return (
+              <li key={item.itemCode}>
+                <div className="flex m-2">
+                  <div className="w-2/3 items-center justify-center font-semibold text-lg m-2">
+                    {item.itemName}
+                  </div>
+                  <div className="w-1/3 flex justify-evenly items-center">
+                    <AiOutlinePlusCircle
+                      onClick={() => handleAddQuantity(item, "+")}
+                      className="text-2xl text-pink-600 cursor-pointer hover:text-pink-800"
+                    />
+                    {item.quantity}
+                    <AiOutlineMinusCircle
+                      onClick={() => handleAddQuantity(item, "-")}
+                      className="text-2xl  text-pink-600 cursor-pointer hover:text-pink-800"
+                    />
+                  </div>
+                </div>
+              </li>
+            );
+          })}
         </ol>
 
         <div className="flex">
           <button className="flex mr-auto text-white bg-pink-400 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded">
-            {" "}
             <BsBagCheckFill className="my-1 mx-2" /> Checkout
           </button>
           <button
