@@ -6,7 +6,7 @@ import { Cart } from "./Cart";
 
 export default function Navbar() {
   return (
-    <div className="flex flex-col justify-between items-center md:flex-row md:justify-start shadow-xl">
+    <div className="flex flex-col justify-between items-center md:flex-row md:justify-start shadow-xl sticky top-0 z-1 bg-white">
       {/* Navbar */}
       <div className="logo mx-4 my-2 md:my-4">
         <Link href={"/"}>
