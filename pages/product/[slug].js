@@ -1,11 +1,10 @@
 import { useCheckPinCodeQuery } from "@/store/apiSlice";
 import { addToCart, selectCart, manipulateQuantity } from "@/store/cartSlice";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { handleAddToCart } from "../components/Cart";
 
 // SLug.jsg
 const Slug = () => {
