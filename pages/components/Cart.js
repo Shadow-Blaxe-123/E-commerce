@@ -25,12 +25,10 @@ export const Cart = () => {
     if (!cartState.isOpen) {
       refSideBar.current.classList.remove("translate-x-full");
       refSideBar.current.classList.add("translate-x-0");
-      console.log(cartState);
       dispatch(toggleCartState());
     } else if (cartState.isOpen) {
       refSideBar.current.classList.remove("translate-x-0");
       refSideBar.current.classList.add("translate-x-full");
-      console.log(cartState);
       dispatch(toggleCartState());
     }
   };
