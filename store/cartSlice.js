@@ -14,17 +14,10 @@ export const cartSlice = createSlice({
     },
     // Adding to Cart.
     addToCart: (state, action) => {
-      //   const { payload } = action;
-      //   const { param } = payload;
       state.itemsList.push(action.payload);
-      console.log(action.payload, state);
-      alert("Add more logic to Add To Cart in Slice.");
     },
     clearCart: (state) => {
       state.itemsList = [];
-    },
-    removeFromCart: (state, action) => {
-      alert("Add logic to Remove From Cart in Slice.");
     },
     manipulateQuantity: (state, action) => {
       const result = state.itemsList.find(
@@ -50,8 +43,6 @@ export const cartSlice = createSlice({
 
 export const { toggleCartState, addToCart, clearCart, manipulateQuantity } =
   cartSlice.actions;
-// export const selectYourState = (state) => state.yourSlice.yourState;
-// export const selectYourState = (state) => state.cartSlice
 export const selectCart = (state) => state.cart;
 
 export default cartSlice.reducer;
