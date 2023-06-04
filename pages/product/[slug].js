@@ -7,13 +7,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // SLug.jsg
-const Slug = () => {
+const Slug = ({ productId }) => {
   // Variables
   const ref = useRef();
   const dispatch = useDispatch();
   const router = useRouter();
   const { slug } = router.query;
-  const { data: productArray = [] } = useGetProdectsQuery();
+  const { data: productArray = [], isLoading, isError } = useGetProdectsQuery();
 
   const product = productArray.find((obj) => obj.itemCode === slug);
 
@@ -68,11 +68,19 @@ const Slug = () => {
           itemCode: product.itemCode,
           itemName: product.itemName,
           quantity: 1,
+          price: product.price,
         })
       );
     }
   };
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error occurred while fetching products.</div>;
+  }
   return (
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">
@@ -84,7 +92,7 @@ const Slug = () => {
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">
-              BRAND NAME
+              {product.itemCode}
             </h2>
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
               {product.itemName}
@@ -187,22 +195,7 @@ const Slug = () => {
                 </a>
               </span>
             </div>
-            <p className="leading-relaxed">
-              Introducing the perfect T-shirt for any casual occasion! Made from
-              soft and breathable 100% cotton fabric, this T-shirt is
-              comfortable and durable enough for everyday wear. With a classic
-              slim-fit cut, it flatters any body type, while the range of colors
-              allows you to choose the perfect shade to match your style. The
-              tagless design ensures a comfortable fit, while the
-              double-stitched seams ensure long-lasting durability. Whether
-              you're running errands or hanging out with friends, this T-shirt
-              is the perfect choice. It pairs effortlessly with jeans, shorts,
-              or skirts for a comfortable and stylish look. With its
-              high-quality fabric and attention to detail, this T-shirt is sure
-              to become a wardrobe staple for years to come. Don't miss out on
-              the ultimate combination of comfort and style – order your T-shirt
-              today!
-            </p>
+            <p className="leading-relaxed">{product.description}</p>
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
               <div className="flex">
                 <span className="mr-3">Color</span>
@@ -284,3 +277,15 @@ const Slug = () => {
 };
 
 export default Slug;
+
+export async function getServerSideProps(context) {
+  const { params } = context;
+  const { slug } = params;
+  const productId = slug.split("-")[1] || null;
+
+  return {
+    props: {
+      productId,
+    },
+  };
+}
