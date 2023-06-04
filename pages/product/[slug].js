@@ -1,6 +1,6 @@
-import { useCheckPinCodeQuery } from "@/store/apiSlice";
+import { useCheckPinCodeQuery, useGetProdectsQuery } from "@/store/apiSlice";
 import { addToCart, selectCart, manipulateQuantity } from "@/store/cartSlice";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,6 +11,11 @@ const Slug = () => {
   // Variables
   const ref = useRef();
   const dispatch = useDispatch();
+  const router = useRouter();
+  const { slug } = router.query;
+  const { data: productArray = [] } = useGetProdectsQuery();
+
+  const product = productArray.find((obj) => obj.itemCode === slug);
 
   // Toast function to display notification --External Library called "Toastify"
   const notify = (param) => {
@@ -55,13 +60,13 @@ const Slug = () => {
   };
 
   const handleAddToCart = () => {
-    if (cartState.itemsList.find((obj) => obj.itemCode === "Tshirt0009")) {
-      dispatch(manipulateQuantity({ itemCode: "Tshirt0009", type: "+" }));
+    if (cartState.itemsList.find((obj) => obj.itemCode === product.itemCode)) {
+      dispatch(manipulateQuantity({ itemCode: product.itemCode, type: "+" }));
     } else {
       dispatch(
         addToCart({
-          itemCode: "Tshirt0009",
-          itemName: "The Catcher Eye",
+          itemCode: product.itemCode,
+          itemName: product.itemName,
           quantity: 1,
         })
       );
@@ -82,7 +87,7 @@ const Slug = () => {
               BRAND NAME
             </h2>
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-              The Catcher in the Rye
+              {product.itemName}
             </h1>
             <div className="flex mb-4">
               <span className="flex items-center">
@@ -233,7 +238,7 @@ const Slug = () => {
             {/* Bottom Button Part */}
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">
-                $58.00
+                ${product.price}
               </span>
               <button
                 onClick={handleAddToCart}
