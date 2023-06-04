@@ -98,14 +98,26 @@ export const Cart = () => {
 
         <div className="flex mt-3">
           <Link href={"../checkout"} className="mr-auto">
-            <button className="flex mr-auto text-white bg-pink-400 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded">
+            <button
+              disabled={cartState.btnDisabled}
+              className={`flex m-2 text-white font-bold bg-pink-500 border-0 py-2 px-2 focus:outline-none rounded ${
+                cartState.btnDisabled
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:bg-pink-600"
+              }`}
+            >
               <BsBagCheckFill className="my-1 mx-2" /> Checkout
             </button>
           </Link>
 
           <button
             onClick={handleClearCart}
-            className="mr-auto text-white bg-pink-400 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded"
+            disabled={cartState.btnDisabled}
+            className={`flex m-2 text-white font-bold bg-pink-500 border-0 py-2 px-2 focus:outline-none rounded ${
+              cartState.btnDisabled
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:bg-pink-600"
+            }`}
           >
             Clear Cart
           </button>
