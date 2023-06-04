@@ -7,6 +7,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
 // import { apiSlice } from "@/store/apiSlice";
 
+
 export default function App({ Component, pageProps }) {
   return (
     <>
