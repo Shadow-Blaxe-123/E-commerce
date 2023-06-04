@@ -4,6 +4,7 @@ import { apiSlice } from "./apiSlice";
 import { combineReducers } from "redux";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+// import localStorage from "redux-persist/es/storage";
 
 const rootReducer = combineReducers({
   cart: cartSlice,
