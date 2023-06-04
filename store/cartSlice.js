@@ -6,6 +6,7 @@ export const cartSlice = createSlice({
     isOpen: false,
     subTotal: 0,
     itemsList: [],
+    btnDisabled: true,
   },
   reducers: {
     // State for the visibility of cart.
@@ -15,25 +16,33 @@ export const cartSlice = createSlice({
     // Adding to Cart.
     addToCart: (state, action) => {
       state.itemsList.push(action.payload);
+      state.subTotal += action.payload.price;
+      state.btnDisabled = false;
     },
     clearCart: (state) => {
       state.itemsList = [];
+      state.subTotal = 0;
+      state.btnDisabled = true;
     },
     manipulateQuantity: (state, action) => {
       const result = state.itemsList.find(
         (obj) => obj.itemCode === action.payload.itemCode
       );
-
       if (result) {
         if (action.payload.type === "+") {
           result.quantity++;
+          state.subTotal += result.price;
         } else if (action.payload.type === "-") {
           result.quantity--;
+          state.subTotal -= result.price;
           if (result.quantity === 0) {
             // Remove the item from the list
             state.itemsList = state.itemsList.filter(
               (obj) => obj.itemCode !== result.itemCode
             );
+            if (state.itemsList.length === 0) {
+              state.btnDisabled = true;
+            }
           }
         }
       }
