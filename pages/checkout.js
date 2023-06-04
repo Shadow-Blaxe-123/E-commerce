@@ -49,7 +49,7 @@ const Checkout = () => {
       <br className="bg-slate-500" />
       <form name="delivery-details" className="details">
         <div>
-          <h2 className="font-bold text-xl">1. Details</h2>
+          <h2 className="font-bold text-2xl">1. Details</h2>
           <div className="flex">
             <div className="w-1/2 m-3">
               <label htmlFor="name" className="font-semibold">
@@ -139,56 +139,62 @@ const Checkout = () => {
         </div>
 
         <div>
-          <h2 className="font-bold text-xl">2. Review Cart</h2>
-          <div>
-            {/* Closing sidebar icon */}
+          <h2 className="font-bold text-2xl">2. Review Cart</h2>
+          <div className="bg-violet-200 p-7">
+            <div>
+              {/* Closing sidebar icon */}
 
-            <ol className="list-decimal">
-              {cartState.itemsList.length > 0 ? (
-                cartState.itemsList.map((item) => {
-                  return (
-                    <li key={item.itemCode}>
-                      <div className="flex m-2">
-                        <div className="w-2/3 items-center justify-center font-semibold text-lg m-2">
-                          {item.itemName}
+              <ol className="list-decimal">
+                {cartState.itemsList.length > 0 ? (
+                  cartState.itemsList.map((item) => {
+                    return (
+                      <li key={item.itemCode}>
+                        <div className="flex m-2">
+                          <div className="w-2/3 items-center justify-center font-semibold text-lg m-2">
+                            {item.itemName}
+                          </div>
+                          <div className="w-1/3 flex justify-evenly items-center">
+                            <AiOutlinePlusCircle
+                              onClick={() => handleAddQuantity(item, "+")}
+                              className="text-2xl text-pink-600 cursor-pointer hover:text-pink-800"
+                            />
+                            {item.quantity}
+                            <AiOutlineMinusCircle
+                              onClick={() => handleAddQuantity(item, "-")}
+                              className="text-2xl  text-pink-600 cursor-pointer hover:text-pink-800"
+                            />
+                          </div>
                         </div>
-                        <div className="w-1/3 flex justify-evenly items-center">
-                          <AiOutlinePlusCircle
-                            onClick={() => handleAddQuantity(item, "+")}
-                            className="text-2xl text-pink-600 cursor-pointer hover:text-pink-800"
-                          />
-                          {item.quantity}
-                          <AiOutlineMinusCircle
-                            onClick={() => handleAddQuantity(item, "-")}
-                            className="text-2xl  text-pink-600 cursor-pointer hover:text-pink-800"
-                          />
-                        </div>
-                      </div>
-                    </li>
-                  );
-                })
-              ) : (
-                <div className="font-bold text-lg">No items in the Cart!!!</div>
-              )}
-            </ol>
+                      </li>
+                    );
+                  })
+                ) : (
+                  <div className="font-bold text-lg">
+                    No items in the Cart!!!
+                  </div>
+                )}
+              </ol>
+            </div>
 
-            <div className="font-medium">Subtotal: {cartState.subTotal}</div>
+            <div className="text-xl flex">
+              <p className="font-bold">Subtotal: $</p>
+              {cartState.subTotal}
+            </div>
 
             <div className="flex mt-3">
               <Link href={"/payment"}>
                 <button
+                  disabled={cartState.btnDisabled}
                   type="submit"
-                  className="flex m-2 text-white bg-pink-400 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded"
+                  className={`flex m-2 text-white font-bold bg-pink-500 border-0 py-2 px-2 focus:outline-none rounded ${
+                    cartState.btnDisabled
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-pink-600"
+                  }`}
                 >
-                  <BsCartCheckFill className="my-1 mx-2" /> Payment
+                  <BsCartCheckFill className="m-1" /> Pay To
                 </button>
               </Link>
-              <button
-                onClick={handleClearCart}
-                className="m-2 text-white bg-pink-400 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded"
-              >
-                Clear Cart
-              </button>
             </div>
           </div>
         </div>
