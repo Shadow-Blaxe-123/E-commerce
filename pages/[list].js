@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import { apiSlice, useGetProdectsQuery } from "@/store/apiSlice";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -22,7 +22,7 @@ const Tshirts = () => {
                 >
                   <Link href={`/product/${item.itemCode}`}>
                     <div className="block relative  rounded overflow-hidden">
-                      <Image
+                      <img
                         alt="ecommerce"
                         className="m-auto md:mx-0 h-[30vh]  md:h-[36vh] block"
                         src={item.img}
