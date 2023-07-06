@@ -1,6 +1,10 @@
+import { selectCart } from "@/store/cartSlice";
 import React from "react";
+import { useSelector } from "react-redux";
 
-const order = () => {
+const Order = () => {
+  const cartState = useSelector(selectCart);
+
   return (
     <div>
       <section class="text-gray-600 body-font overflow-hidden">
@@ -11,7 +15,7 @@ const order = () => {
                 ShadowStore.com
               </h2>
               <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">
-                Animated Night Hill Illustrations
+                Order Id: #897380
               </h1>
 
               <p class="leading-relaxed mb-4">
@@ -30,18 +34,22 @@ const order = () => {
                 </h2>
               </div>
 
-              <div class="flex border-t border-gray-200 py-2">
-                <span class="text-gray-500">Color</span>
-                <span class="ml-auto text-gray-900">Blue</span>
-              </div>
-              <div class="flex border-t border-gray-200 py-2">
+              {cartState.itemsList.map((item) => {
+                <div class="flex border-t border-gray-200 py-2">
+                  <span class="text-gray-500"></span>
+                  <span class="text-gray-500 ml-auto">Color</span>
+                  <span class="ml-auto text-gray-900">Blue</span>
+                </div>;
+              })}
+
+              {/* <div class="flex border-t border-gray-200 py-2">
                 <span class="text-gray-500">Size</span>
                 <span class="ml-auto text-gray-900">Medium</span>
               </div>
               <div class="flex border-t border-b mb-6 border-gray-200 py-2">
                 <span class="text-gray-500">Quantity</span>
                 <span class="ml-auto text-gray-900">4</span>
-              </div>
+              </div> */}
               <div class="flex">
                 <span class="title-font font-medium text-2xl text-gray-900">
                   $58.00
@@ -63,12 +71,14 @@ const order = () => {
                 </button>
               </div>
             </div>
-            {// eslint-disable-next-line @next/next/no-img-element
-            <img
-              alt="ecommerce"
-              class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-              src="https://dummyimage.com/400x400"
-            />}
+            {
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                alt="ecommerce"
+                class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+                src="https://dummyimage.com/400x400"
+              />
+            }
           </div>
         </div>
       </section>
@@ -76,4 +86,4 @@ const order = () => {
   );
 };
 
-export default order;
+export default Order;
