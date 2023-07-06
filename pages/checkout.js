@@ -1,8 +1,5 @@
 import React, { useRef } from "react";
-import {
-  AiOutlinePlusCircle,
-  AiOutlineMinusCircle,
-} from "react-icons/ai";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { BsBagCheckFill } from "react-icons/bs";
 import {
   selectCart,
@@ -16,7 +13,6 @@ import { BsCartCheckFill } from "react-icons/bs";
 // import CheckoutBG from "../public/CheckoutBG.png";
 
 const Checkout = () => {
-  const refSideBar = useRef();
   const dispatch = useDispatch();
   const cartState = useSelector(selectCart);
 
