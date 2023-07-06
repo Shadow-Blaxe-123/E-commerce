@@ -1,7 +1,5 @@
 import React, { useRef } from "react";
 import {
-  AiOutlineShoppingCart,
-  AiOutlineCloseSquare,
   AiOutlinePlusCircle,
   AiOutlineMinusCircle,
 } from "react-icons/ai";
@@ -23,22 +21,6 @@ const Checkout = () => {
   const cartState = useSelector(selectCart);
 
   // All the Utility functons to change handle.
-  const toggleCart = () => {
-    if (!cartState.isOpen) {
-      refSideBar.current.classList.remove("translate-x-full");
-      refSideBar.current.classList.add("translate-x-0");
-      dispatch(toggleCartState());
-    } else if (cartState.isOpen) {
-      refSideBar.current.classList.remove("translate-x-0");
-      refSideBar.current.classList.add("translate-x-full");
-      dispatch(toggleCartState());
-    }
-  };
-
-  const handleClearCart = () => {
-    dispatch(clearCart());
-  };
-
   const handleAddQuantity = (item, type) => {
     dispatch(manipulateQuantity({ itemCode: item.itemCode, type: type }));
   };
