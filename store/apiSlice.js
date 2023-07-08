@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
   tagTypes: ["Pincode", "Products"],
@@ -9,13 +10,16 @@ export const apiSlice = createApi({
       providesTags: () => ["Pincode"],
     }),
     getProdects: builder.query({
-      query: () => "/hello",
+      query: () => "/listing",
       providesTags: () => ["Products"],
       options: {
         forceRefetch: true, // Add this option to always refetch the data
       },
     }),
+    clearCache: builder.mutation({
+      invalidatesTags: ['Products'],
+    })
   }),
 });
 
-export const { useCheckPinCodeQuery, useGetProdectsQuery } = apiSlice;
+export const {useClearCacheMutation, useCheckPinCodeQuery, useGetProdectsQuery } = apiSlice;
