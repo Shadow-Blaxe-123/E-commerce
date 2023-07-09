@@ -14,7 +14,6 @@ const Slug = ({ productId }) => {
   const router = useRouter();
   const { slug } = router.query;
   const { data: productArray = [], isLoading, isError } = useGetProdectsQuery();
-
   const product = productArray.find((obj) => obj.itemCode === slug);
 
   // Toast function to display notification --External Library called "Toastify"
@@ -58,7 +57,7 @@ const Slug = ({ productId }) => {
       warning("Please Enter a Valid Pincode");
     }
   };
-
+  // Changing Cart State..
   const handleAddToCart = () => {
     if (cartState.itemsList.find((obj) => obj.itemCode === product.itemCode)) {
       dispatch(manipulateQuantity({ itemCode: product.itemCode, type: "+" }));
