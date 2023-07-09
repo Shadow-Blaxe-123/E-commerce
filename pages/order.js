@@ -34,6 +34,8 @@ const Order = () => {
                 </h2>
               </div>
 
+              {/* The list of items for order page. */}
+
               {cartState.itemsList.map((item) => {
                 return (
                   <div
