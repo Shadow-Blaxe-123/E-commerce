@@ -1,12 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
-import { BsBagCheckFill } from "react-icons/bs";
-import {
-  selectCart,
-  toggleCartState,
-  clearCart,
-  manipulateQuantity,
-} from "@/store/cartSlice";
+import { selectCart, manipulateQuantity } from "@/store/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import { BsCartCheckFill } from "react-icons/bs";
@@ -26,6 +20,7 @@ const Checkout = () => {
       <div className="font-black text-4xl text-center">Checkout</div>
       <br className="bg-slate-500" />
       <form name="delivery-details" className="details">
+        {/* User Details for ordering. */}
         <div>
           <h2 className="font-bold text-2xl">1. Details</h2>
           <div className="flex">
@@ -119,9 +114,8 @@ const Checkout = () => {
         <div>
           <h2 className="font-bold text-2xl">2. Review Cart</h2>
           <div className="bg-violet-200 p-7">
+            {/* Cart for one last review */}
             <div>
-              {/* Closing sidebar icon */}
-
               <ol className="list-decimal">
                 {cartState.itemsList.length > 0 ? (
                   cartState.itemsList.map((item) => {
