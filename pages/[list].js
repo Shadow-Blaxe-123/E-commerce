@@ -1,15 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
-import { apiSlice, useClearCacheMutation, useGetProdectsQuery } from "@/store/apiSlice";
+import { apiSlice, useGetProdectsQuery } from "@/store/apiSlice";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-const Tshirts = () => {
+const Products = () => {
   const dispatch = useDispatch();
-  // dispatch(apiSlice.util.resetApiState());
   const { data: productArray = [] } = useGetProdectsQuery();
+  // Invalidating RTK Query Cache and refetching before the page is loaded.
   useEffect(() => {
-    dispatch(apiSlice.util.invalidateTags(['Products'])); // Fix the dispatch action and closing parentheses
+    dispatch(apiSlice.util.invalidateTags(["Products"]));
   }, [dispatch]);
 
   return (
@@ -44,8 +44,6 @@ const Tshirts = () => {
                 </div>
               );
             })}
-
-            {console.log(productArray)}
           </div>
         </div>
       </section>
@@ -53,4 +51,4 @@ const Tshirts = () => {
   );
 };
 
-export default Tshirts;
+export default Products;
