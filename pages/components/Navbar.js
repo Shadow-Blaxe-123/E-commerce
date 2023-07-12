@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { CgProfile } from "react-icons/cg";
 
 import { Cart } from "./Cart";
 
@@ -32,6 +33,10 @@ export default function Navbar() {
           </Link>
         </ul>
       </div>
+
+      <Link href={"/"}>
+        <CgProfile className="absolute right-12 md:text-4xl top-4 font-bold mx-5" />
+      </Link>
 
       <Cart />
     </div>
